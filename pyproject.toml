@@ -7,6 +7,10 @@ authors = ["lemon <you@example.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 fastapi = "^0.61.1"
+uvicorn = "^0.11.8"
+tortoise-orm = "^0.16.14"
+aiomysql = "^0.0.20"
+aerich = "^0.2.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
