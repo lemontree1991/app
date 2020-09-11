@@ -27,7 +27,8 @@ class CRUDUser(CRUDBase[User, UserCreate, UserUpdate]):
         Returns:
 
         """
-        user = await self.model.get_or_none(Q(email=username) | Q(username=username))
+        user = await self.model.get_or_none(
+            Q(email=username) | Q(username=username))
         if not user:
             return None
         if not verify_password(password, user.password):
