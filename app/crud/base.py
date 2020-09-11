@@ -47,7 +47,9 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
             update_data = obj_in.dict(exclude_unset=True)
         if hasattr(db_obj, 'update_time'):
             update_data.setdefault('update_time', datetime.now())
-        return await db_obj.update_from_dict(update_data)
+        db_obj.update_from_dict(update_data)
+        await db_obj.save()
+        return db_obj
 
     async def delete(self, pk: Any):
         """Delete model"""
