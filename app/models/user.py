@@ -6,7 +6,8 @@ from app.models import AbstractBaseModel
 
 
 class User(AbstractBaseModel):
-    username = fields.CharField(max_length=128, description='用户名', index=True)
+    username = fields.CharField(max_length=128, description='用户名', unique=True,
+                                index=True)
     email = fields.CharField(max_length=128, description='邮箱', unique=True,
                              index=True)
     password = fields.CharField(max_length=256, description='密码')

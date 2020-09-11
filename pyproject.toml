@@ -9,6 +9,7 @@ python = "^3.7"
 fastapi = "^0.61.1"
 uvicorn = "^0.11.8"
 email-validator = "^1.1.1"
+python-multipart = "^0.0.5"
 tortoise-orm = "^0.16.14"
 aiomysql = "^0.0.20"
 passlib = {version = "^1.7.2", extras = ["bcrypt"]}
