@@ -3,10 +3,9 @@
 from tortoise import fields
 
 from app.models import AbstractBaseModel
-from app.models import TimestampMixin
 
 
-class User(AbstractBaseModel, TimestampMixin):
+class User(AbstractBaseModel):
     username = fields.CharField(max_length=128, description='用户名', index=True)
     email = fields.CharField(max_length=128, description='邮箱', unique=True,
                              index=True)

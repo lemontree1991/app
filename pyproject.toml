@@ -11,6 +11,7 @@ uvicorn = "^0.11.8"
 tortoise-orm = "^0.16.14"
 aiomysql = "^0.0.20"
 aerich = "^0.2.2"
+email-validator = "^1.1.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
