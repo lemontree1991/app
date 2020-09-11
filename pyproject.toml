@@ -8,10 +8,12 @@ authors = ["lemon <you@example.com>"]
 python = "^3.7"
 fastapi = "^0.61.1"
 uvicorn = "^0.11.8"
+email-validator = "^1.1.1"
 tortoise-orm = "^0.16.14"
 aiomysql = "^0.0.20"
+passlib = {version = "^1.7.2", extras = ["bcrypt"]}
+python-jose = {version = "^3.2.0", extras = ["cryptography"]}
 aerich = "^0.2.2"
-email-validator = "^1.1.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

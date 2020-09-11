@@ -5,6 +5,7 @@ from typing import Dict
 from typing import Optional
 from typing import Union
 
+from app.core.security import get_password_hash, verify_password
 from app.crud.base import CRUDBase
 from app.models import User
 from app.schemas.user import UserCreate
@@ -16,6 +17,7 @@ class CRUDUser(CRUDBase[User, UserCreate, UserUpdate]):
         return await self.model.get_or_none(email=email)
 
     async def create(self, obj_in: UserCreate) -> User:
+        obj_in.password = get_password_hash(obj_in.password)
         return await self.model.create(**obj_in.dict())
 
     async def update(self,

@@ -145,6 +145,27 @@ url = "https://mirrors.aliyun.com/pypi/simple"
 
 [[package]]
 category = "main"
+description = "Modern password hashing for your software and your servers"
+name = "bcrypt"
+optional = false
+python-versions = ">=3.6"
+version = "3.2.0"
+
+[package.dependencies]
+cffi = ">=1.1"
+six = ">=1.4.1"
+
+[package.extras]
+tests = ["pytest (>=3.2.1,<3.3.0 || >3.3.0)"]
+typecheck = ["mypy"]
+
+[package.source]
+reference = "ali"
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+
+[[package]]
+category = "main"
 description = "Foreign Function Interface for Python calling C code."
 name = "cffi"
 optional = false
@@ -223,6 +244,22 @@ dnssec = ["cryptography (>=2.6)"]
 doh = ["requests", "requests-toolbelt"]
 idna = ["idna (>=2.1)"]
 trio = ["trio (>=0.14.0)", "sniffio (>=1.1)"]
+
+[package.source]
+reference = "ali"
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+
+[[package]]
+category = "main"
+description = "ECDSA cryptographic signature library (pure python)"
+name = "ecdsa"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+version = "0.14.1"
+
+[package.dependencies]
+six = "*"
 
 [package.source]
 reference = "ali"
@@ -375,6 +412,28 @@ type = "legacy"
 url = "https://mirrors.aliyun.com/pypi/simple"
 
 [[package]]
+category = "main"
+description = "comprehensive password hashing framework supporting over 30 schemes"
+name = "passlib"
+optional = false
+python-versions = "*"
+version = "1.7.2"
+
+[package.dependencies]
+bcrypt = {version = ">=3.1.0", optional = true, markers = "extra == \"bcrypt\""}
+
+[package.extras]
+argon2 = ["argon2-cffi (>=18.2.0)"]
+bcrypt = ["bcrypt (>=3.1.0)"]
+build_docs = ["sphinx (>=1.6)", "sphinxcontrib-fulltoc (>=1.2.0)", "cloud-sptheme (>=1.10.0)"]
+totp = ["cryptography"]
+
+[package.source]
+reference = "ali"
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+
+[[package]]
 category = "dev"
 description = "plugin and hook calling mechanisms for python"
 name = "pluggy"
@@ -400,6 +459,19 @@ name = "py"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "1.9.0"
+
+[package.source]
+reference = "ali"
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+
+[[package]]
+category = "main"
+description = "ASN.1 types and codecs"
+name = "pyasn1"
+optional = false
+python-versions = "*"
+version = "0.4.8"
 
 [package.source]
 reference = "ali"
@@ -501,6 +573,47 @@ importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
 [package.extras]
 checkqa-mypy = ["mypy (v0.761)"]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
+
+[package.source]
+reference = "ali"
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+
+[[package]]
+category = "main"
+description = "JOSE implementation in Python"
+name = "python-jose"
+optional = false
+python-versions = "*"
+version = "3.2.0"
+
+[package.dependencies]
+ecdsa = "<0.15"
+pyasn1 = "*"
+rsa = "*"
+six = "<2.0"
+cryptography = {version = "*", optional = true, markers = "extra == \"cryptography\""}
+
+[package.extras]
+cryptography = ["cryptography"]
+pycrypto = ["pycrypto (>=2.6.0,<2.7.0)", "pyasn1"]
+pycryptodome = ["pycryptodome (>=3.3.1,<4.0.0)", "pyasn1"]
+
+[package.source]
+reference = "ali"
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+
+[[package]]
+category = "main"
+description = "Pure-Python RSA implementation"
+name = "rsa"
+optional = false
+python-versions = ">=3.5, <4"
+version = "4.6"
+
+[package.dependencies]
+pyasn1 = ">=0.1.3"
 
 [package.source]
 reference = "ali"
@@ -664,7 +777,7 @@ type = "legacy"
 url = "https://mirrors.aliyun.com/pypi/simple"
 
 [metadata]
-content-hash = "7f94a97620ffe3e16c5f7323fe6e64b360311841eb3669ffc6dde5b5b492b1f5"
+content-hash = "46eeeaa8388cc6ea5f0d76d9d1d4e156f0ae483df8bab2d990c716cc97da74b4"
 lock-version = "1.1"
 python-versions = "^3.7"
 
@@ -699,6 +812,15 @@ atomicwrites = [
 attrs = [
     {file = "attrs-20.2.0-py2.py3-none-any.whl", hash = "sha256:fce7fc47dfc976152e82d53ff92fa0407700c21acd20886a13777a0d20e655dc"},
     {file = "attrs-20.2.0.tar.gz", hash = "sha256:26b54ddbbb9ee1d34d5d3668dd37d6cf74990ab23c828c2888dccdceee395594"},
+]
+bcrypt = [
+    {file = "bcrypt-3.2.0-cp36-abi3-macosx_10_9_x86_64.whl", hash = "sha256:c95d4cbebffafcdd28bd28bb4e25b31c50f6da605c81ffd9ad8a3d1b2ab7b1b6"},
+    {file = "bcrypt-3.2.0-cp36-abi3-manylinux1_x86_64.whl", hash = "sha256:63d4e3ff96188e5898779b6057878fecf3f11cfe6ec3b313ea09955d587ec7a7"},
+    {file = "bcrypt-3.2.0-cp36-abi3-manylinux2010_x86_64.whl", hash = "sha256:cd1ea2ff3038509ea95f687256c46b79f5fc382ad0aa3664d200047546d511d1"},
+    {file = "bcrypt-3.2.0-cp36-abi3-manylinux2014_aarch64.whl", hash = "sha256:cdcdcb3972027f83fe24a48b1e90ea4b584d35f1cc279d76de6fc4b13376239d"},
+    {file = "bcrypt-3.2.0-cp36-abi3-win32.whl", hash = "sha256:a67fb841b35c28a59cebed05fbd3e80eea26e6d75851f0574a9273c80f3e9b55"},
+    {file = "bcrypt-3.2.0-cp36-abi3-win_amd64.whl", hash = "sha256:81fec756feff5b6818ea7ab031205e1d323d8943d237303baca2c5f9c7846f34"},
+    {file = "bcrypt-3.2.0.tar.gz", hash = "sha256:5b93c1726e50a93a033c36e5ca7fdcd29a5c7395af50a6892f5d9e7c6cfbfb29"},
 ]
 cffi = [
     {file = "cffi-1.14.2-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:da9d3c506f43e220336433dffe643fbfa40096d408cb9b7f2477892f369d5f82"},
@@ -766,6 +888,10 @@ dnspython = [
     {file = "dnspython-2.0.0-py3-none-any.whl", hash = "sha256:40bb3c24b9d4ec12500f0124288a65df232a3aa749bb0c39734b782873a2544d"},
     {file = "dnspython-2.0.0.zip", hash = "sha256:044af09374469c3a39eeea1a146e8cac27daec951f1f1f157b1962fc7cb9d1b7"},
 ]
+ecdsa = [
+    {file = "ecdsa-0.14.1-py2.py3-none-any.whl", hash = "sha256:e108a5fe92c67639abae3260e43561af914e7fd0d27bae6d2ec1312ae7934dfe"},
+    {file = "ecdsa-0.14.1.tar.gz", hash = "sha256:64c613005f13efec6541bb0a33290d0d03c27abab5f15fbab20fb0ee162bdd8e"},
+]
 email-validator = [
     {file = "email_validator-1.1.1-py2.py3-none-any.whl", hash = "sha256:5f246ae8d81ce3000eade06595b7bb55a4cf350d559e890182a1466a21f25067"},
     {file = "email_validator-1.1.1.tar.gz", hash = "sha256:63094045c3e802c3d3d575b18b004a531c36243ca8d1cec785ff6bfcb04185bb"},
@@ -813,6 +939,10 @@ packaging = [
     {file = "packaging-20.4-py2.py3-none-any.whl", hash = "sha256:998416ba6962ae7fbd6596850b80e17859a5753ba17c32284f67bfff33784181"},
     {file = "packaging-20.4.tar.gz", hash = "sha256:4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"},
 ]
+passlib = [
+    {file = "passlib-1.7.2-py2.py3-none-any.whl", hash = "sha256:68c35c98a7968850e17f1b6892720764cc7eed0ef2b7cb3116a89a28e43fe177"},
+    {file = "passlib-1.7.2.tar.gz", hash = "sha256:8d666cef936198bc2ab47ee9b0410c94adf2ba798e5a84bf220be079ae7ab6a8"},
+]
 pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
     {file = "pluggy-0.13.1.tar.gz", hash = "sha256:15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"},
@@ -820,6 +950,10 @@ pluggy = [
 py = [
     {file = "py-1.9.0-py2.py3-none-any.whl", hash = "sha256:366389d1db726cd2fcfc79732e75410e5fe4d31db13692115529d34069a043c2"},
     {file = "py-1.9.0.tar.gz", hash = "sha256:9ca6883ce56b4e8da7e79ac18787889fa5206c79dcc67fb065376cd2fe03f342"},
+]
+pyasn1 = [
+    {file = "pyasn1-0.4.8-py2.py3-none-any.whl", hash = "sha256:39c7e2ec30515947ff4e87fb6f456dfc6e84857d34be479c9d4a4ba4bf46aa5d"},
+    {file = "pyasn1-0.4.8.tar.gz", hash = "sha256:aef77c9fb94a3ac588e87841208bdec464471d9871bd5050a287cc9a475cd0ba"},
 ]
 pycparser = [
     {file = "pycparser-2.20-py2.py3-none-any.whl", hash = "sha256:7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705"},
@@ -858,6 +992,14 @@ pypika = [
 pytest = [
     {file = "pytest-5.4.3-py3-none-any.whl", hash = "sha256:5c0db86b698e8f170ba4582a492248919255fcd4c79b1ee64ace34301fb589a1"},
     {file = "pytest-5.4.3.tar.gz", hash = "sha256:7979331bfcba207414f5e1263b5a0f8f521d0f457318836a7355531ed1a4c7d8"},
+]
+python-jose = [
+    {file = "python-jose-3.2.0.tar.gz", hash = "sha256:4e4192402e100b5fb09de5a8ea6bcc39c36ad4526341c123d401e2561720335b"},
+    {file = "python_jose-3.2.0-py2.py3-none-any.whl", hash = "sha256:67d7dfff599df676b04a996520d9be90d6cdb7e6dd10b4c7cacc0c3e2e92f2be"},
+]
+rsa = [
+    {file = "rsa-4.6-py3-none-any.whl", hash = "sha256:6166864e23d6b5195a5cfed6cd9fed0fe774e226d8f854fcb23b7bbef0350233"},
+    {file = "rsa-4.6.tar.gz", hash = "sha256:109ea5a66744dd859bf16fe904b8d8b627adafb9408753161e766a92e7d681fa"},
 ]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
